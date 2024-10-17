@@ -1,0 +1,14 @@
+{# templates/author/showBooks.html.twig #}
+<h1>Books by {{ author.username }}</h1>
+
+<ul class="book-list">
+    {% for livre in livres %}
+        <li class="book-item">
+            <img src="{{ asset('uploads/images/' ~ livre.picture) }}" alt="{{ livre.title }}">
+            <h3>{{ livre.title }}</h3>
+            <p>{{ livre.nbrPage }} pages</p>
+        </li>
+    {% else %}
+        <p>No books found for this author.</p>
+    {% endfor %}
+</ul>

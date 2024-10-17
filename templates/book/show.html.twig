@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book{% endblock %}
+
+{% block body %}
+    <h1>Book</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Ref</th>
+                <td>{{ book.ref }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ book.title }}</td>
+            </tr>
+            <tr>
+                <th>Nb_page</th>
+                <td>{{ book.nbPage }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ book.picture }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('index_book') }}">back to list</a>
+
+    <a href="{{ path('book_edit', {'ref': book.ref}) }}">edit</a>
+
+    {{ include('book/_delete_form.html.twig') }}
+{% endblock %}

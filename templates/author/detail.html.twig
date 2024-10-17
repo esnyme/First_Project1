@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Detail</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+    <div class="author-card">
+        <img src="{{ asset(author.picture) }}" alt="{{ author.username }}">
+        <h1>{{ author.username }}</h1>
+        <p class="email">{{ author.email }}</p>
+        <p class="books">Books Published: {{ author.nb_books }}</p>
+    </div>
+</body>
+</html>

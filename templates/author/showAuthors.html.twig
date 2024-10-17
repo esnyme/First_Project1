@@ -1,0 +1,35 @@
+{# templates/author/list.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors List</title>
+    <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">List of Authors</h2>
+        <ul class="author-list">
+            {% for author in authors %}
+                <li class="author-card">
+                    <img class="author-image" src="{{ asset(author.picture) }}" alt="{{ author.username }}">
+                    <div class="author-info">
+                        <h3 class="author-name">{{ author.username }}</h3>
+                        <p class="book-count">{{ author.nb_books }} books</p>
+                        <a class="details-link" href="{{ path('author_details', {id: author.id}) }}">Details</a>
+                        <a class="details-link" href="{{ path('author_delete', {id: author.id}) }}">Delete</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        {%set total_livre=0%}
+        {%for author in authors%}
+        {%set total_livre=total_livre + author.nb_books%}
+        {%endfor%}
+        <h1 class="total-books">Nombre total des livres est {{total_livre}}</h1>
+
+        
+    </div>
+</body>
+</html>
